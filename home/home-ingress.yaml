@@ -19,7 +19,7 @@ spec:
           - backend:
               serviceName: protect-email-service
               servicePort: 80
-            path: /email-api/
+            path: /email-api
   tls:
     - hosts:
         - www.hinze.dev
