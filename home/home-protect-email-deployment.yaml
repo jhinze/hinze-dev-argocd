@@ -16,8 +16,15 @@ spec:
         app: hinze-dev-protect-email
     spec:
       containers:
-        - image: jhinze/protect-email-api:version-1.0.0
+        - image: jhinze/protect-email-api:version-1.0.1
           name: hinze-dev-protect-email
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 2
           ports:
             - containerPort: 80
               protocol: TCP

@@ -18,6 +18,13 @@ spec:
       containers:
         - image: jhinze/hinze-dev-home:version-1.0.0
           name: hinze-dev-www
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 2
           ports:
             - containerPort: 80
               protocol: TCP
