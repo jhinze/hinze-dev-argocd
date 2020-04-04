@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: protect-email-deployment
+  namespace: hinze-dev-home
+  labels:
+    app: hinze-dev-protect-email
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hinze-dev-protect-email
+  template:
+    metadata:
+      labels:
+        app: hinze-dev-protect-email
+    spec:
+      containers:
+        - image: jhinze/protect-email-api:version-1.0.0
+          name: hinze-dev-protect-email
+          ports:
+            - containerPort: 8080
+          env:
+            - name: RECAPTCHA_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: protect-email-secret
+                  key: recaptcha-secret
+            - name: PROTECTED_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: protect-email-secret
+                  key: protected-email
