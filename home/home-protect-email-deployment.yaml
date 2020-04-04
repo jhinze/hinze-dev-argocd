@@ -20,6 +20,7 @@ spec:
           name: hinze-dev-protect-email
           ports:
             - containerPort: 8080
+              protocol: TCP
           env:
             - name: RECAPTCHA_SECRET
               valueFrom:
