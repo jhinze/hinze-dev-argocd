@@ -19,7 +19,7 @@ spec:
         - image: jhinze/protect-email-api:version-1.0.0
           name: hinze-dev-protect-email
           ports:
-            - containerPort: 8080
+            - containerPort: 80
               protocol: TCP
           env:
             - name: RECAPTCHA_SECRET
