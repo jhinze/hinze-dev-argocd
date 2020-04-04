@@ -15,11 +15,11 @@ spec:
         paths:
           - backend:
               serviceName: www-service
-              servicePort: 8080
+              servicePort: 80
             path: /
           - backend:
               serviceName: protect-email-service
-              servicePort: 8080
+              servicePort: 80
             path: /email-api/
   tls:
     - hosts:
