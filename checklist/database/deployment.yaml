@@ -10,16 +10,6 @@ spec:
       containers:
         - image: postgres:12.2-alpine
           name: postgres
-          readinessProbe:
-            exec:
-              command: ["psql", "-U", "$POSTGRES_USER", "-d", "$POSTGRES_DB", "-c", "SELECT 1"]
-            initialDelaySeconds: 15
-            timeoutSeconds: 2
-          livenessProbe:
-            exec:
-              command: ["psql", "-U", "$POSTGRES_USER", "-d", "$POSTGRES_DB", "-c", "SELECT 1"]
-            initialDelaySeconds: 30
-            timeoutSeconds: 2
           env:
             - name: POSTGRES_USER
               valueFrom:
@@ -27,11 +17,6 @@ spec:
                   name: postgres-secret
                   key: user
             - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-secret
-                  key: pass
-            - name: PGPASSWORD
               valueFrom:
                 secretKeyRef:
                   name: postgres-secret
