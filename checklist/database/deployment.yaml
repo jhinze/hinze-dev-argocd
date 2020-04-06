@@ -15,13 +15,7 @@ spec:
               command:
                 - sh
                 - -c
-                - "\"psql"
-                - -U
-                - $POSTGRES_USER
-                - -d
-                - $POSTGRES_DB
-                - -c
-                - "'SELECT 1'\""
+                - "\"psql -U $POSTGRES_USER -d $POSTGRES_DB -c 'SELECT 1'\""
             initialDelaySeconds: 15
             timeoutSeconds: 2
           livenessProbe:
@@ -29,13 +23,7 @@ spec:
               command:
                 - sh
                 - -c
-                - "\"psql"
-                - -U
-                - $POSTGRES_USER
-                - -d
-                - $POSTGRES_DB
-                - -c
-                - "'SELECT 1'\""
+                - "\"psql -U $POSTGRES_USER -d $POSTGRES_DB -c 'SELECT 1'\""
             initialDelaySeconds: 45
             timeoutSeconds: 2
           env:
