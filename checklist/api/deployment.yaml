@@ -37,10 +37,10 @@ spec:
                   name: postgres-secret
                   key: db
             - name: DATABASE_DIALECT
-              value: postgres
+              value: "postgres"
             - name: DATABASE_SSL_MODE
-              value: disable
+              value: "disable"
             - name: DATABASE_PORT
-              value: 5432
+              value: "5432"
             - name: DATABASE_HOST
-              value: checklist-dv-postgres.checklist
+              value: "checklist-dv-postgres.checklist"
