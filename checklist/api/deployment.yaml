@@ -43,4 +43,4 @@ spec:
             - name: DATABASE_PORT
               value: "5432"
             - name: DATABASE_HOST
-              value: "checklist-dv-postgres.checklist"
+              value: "checklist-db-postgres.checklist"
