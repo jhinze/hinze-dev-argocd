@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
@@ -8,8 +8,7 @@ spec:
   template:
     spec:
       containers:
-        - image: postgres:12.2
-          imagePullPolicy: "IfNotPresent"
+        - image: postgres:12.2-alpine
           name: postgres
           env:
             - name: POSTGRES_USER
