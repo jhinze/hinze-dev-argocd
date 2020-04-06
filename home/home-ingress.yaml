@@ -52,4 +52,4 @@ spec:
   tls:
     - hosts:
         - justin.hinze.dev
-      secretName: hinze-dev-home-tls-secret
+      secretName: hinze-dev-justin-tls-secret
