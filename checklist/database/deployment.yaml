@@ -8,7 +8,8 @@ spec:
   template:
     spec:
       containers:
-        - image: postgres:12.2-alpine
+        - image: postgres:12.2
+          imagePullPolicy: "IfNotPresent"
           name: postgres
           env:
             - name: POSTGRES_USER
