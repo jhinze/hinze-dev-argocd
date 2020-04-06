@@ -9,6 +9,7 @@ spec:
     spec:
       containers:
         - image: jhinze/checklist-app-ui:version-1.0.0
+          name: ui
           livenessProbe:
             httpGet:
               path: /index.html

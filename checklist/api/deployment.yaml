@@ -9,6 +9,7 @@ spec:
     spec:
       containers:
         - image: jhinze/checklist-app-api:version-1.0.1
+          name: api
           livenessProbe:
             httpGet:
               path: /health
