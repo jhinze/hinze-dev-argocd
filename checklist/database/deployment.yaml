@@ -12,8 +12,9 @@ spec:
           name: postgres
           readinessProbe:
             exec:
-              command: ["sh", "-c"]
-              args:
+              command:
+                - sh
+                - -c
                 - psql
                 - -U
                 - $POSTGRES_USER
@@ -25,8 +26,9 @@ spec:
             timeoutSeconds: 2
           livenessProbe:
             exec:
-              command: ["sh", "-c"]
-              args:
+              command:
+                - sh
+                - -c
                 - psql
                 - -U
                 - $POSTGRES_USER
