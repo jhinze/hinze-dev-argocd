@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  revisionHistoryLimit: 2
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - image: jhinze/checklist-app-api:version-1.0.1
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 2
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: user
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: pass
+            - name: DATABASE_DBNAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: db
+            - name: DATABASE_DIALECT
+              value: postgres
+            - name: DATABASE_SSL_MODE
+              value: disable
+            - name: DATABASE_PORT
+              value: 5432
+            - name: DATABASE_HOST
+              value: checklist-dv-postgres.checklist

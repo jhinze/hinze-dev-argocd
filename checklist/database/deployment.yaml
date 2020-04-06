@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  revisionHistoryLimit: 2
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - image: postgres:12.2-alpine
+          name: postgres
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: pass
+            - name: POSTGRES_DB
+              valueFrom:
+               secretKeyRef:
+                 name: postgres-secret
+                 key: db
+          ports:
+            - containerPort: 5432
+              name: postgres
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgres
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: checklist-db-volume-claim
