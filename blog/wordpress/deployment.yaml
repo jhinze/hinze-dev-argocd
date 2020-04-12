@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  revisionHistoryLimit: 2
+  replicas: 2
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      containers:
+        - image: wordpress:5.4.0-php7.4-fpm-alpine
+          name: wordpress
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: blog-db-mariadb
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: blog-db-secret
+                  key: root
+          ports:
+            - containerPort: 80
+              name: wordpress
+          volumeMounts:
+            - name: wordpress-storage
+              mountPath: /var/www/html
+      volumes:
+        - name: wordpress-storage
+          persistentVolumeClaim:
+            claimName: wordpress-volume-claim

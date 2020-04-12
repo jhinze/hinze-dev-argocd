@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: blog
+  annotations:
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: blog-basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required'
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+    - host: www.justinhinze.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: blog-wp-service
+              servicePort: 80
+  tls:
+    - hosts:
+        - www.justinhinze.com
+      secretName: justin-hinze-tls-secret
