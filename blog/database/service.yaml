@@ -4,6 +4,6 @@ metadata:
   name: mariadb
 spec:
   ports:
-    - port: 5432
+    - port: 3306
   selector:
     app: blog-db
