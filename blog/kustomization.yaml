@@ -1,4 +1,5 @@
 resources:
   - database
   - wordpress
+  - ingress.yaml
 namespace: blog
