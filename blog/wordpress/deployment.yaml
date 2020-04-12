@@ -14,7 +14,7 @@ spec:
           name: wordpress
           env:
             - name: WORDPRESS_DB_HOST
-              value: blog-db-mariadb
+              value: "blog-db-mariadb.blog"
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
