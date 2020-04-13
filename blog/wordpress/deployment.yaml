@@ -12,6 +12,20 @@ spec:
       containers:
         - image: wordpress:5.4.0-php7.4-apache
           name: wordpress
+          readinessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 15
+            timeoutSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 2
           env:
             - name: WORDPRESS_DB_HOST
               value: "blog-db-mariadb.blog"

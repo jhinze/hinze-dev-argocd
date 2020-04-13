@@ -12,6 +12,16 @@ spec:
       containers:
         - image: mariadb:10.5.2
           name: mariadb
+          readinessProbe:
+            exec:
+              command: ["sh", "-c", "$(printf 'mysqladmin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
+            initialDelaySeconds: 15
+            timeoutSeconds: 2
+          livenessProbe:
+            exec:
+              command: ["sh", "-c", "$(printf 'mysqladmin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
+            initialDelaySeconds: 45
+            timeoutSeconds: 2
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
