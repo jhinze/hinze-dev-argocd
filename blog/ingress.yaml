@@ -3,9 +3,6 @@ kind: Ingress
 metadata:
   name: blog
   annotations:
-    nginx.ingress.kubernetes.io/auth-type: basic
-    nginx.ingress.kubernetes.io/auth-secret: blog-basic-auth
-    nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required'
     nginx.ingress.kubernetes.io/proxy-body-size: 12m
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
