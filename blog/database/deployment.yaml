@@ -39,4 +39,4 @@ spec:
           persistentVolumeClaim:
             claimName: blog-db-volume-claim
       nodeSelector:
-        kubernetes.io/hostname: justin.hinze.dev
+        kubernetes.io/hostname: heidi.hinze.dev
