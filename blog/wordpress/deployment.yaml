@@ -4,9 +4,6 @@ metadata:
   name: wordpress
 spec:
   revisionHistoryLimit: 2
-  replicas: 2
-  strategy:
-    type: Recreate
   template:
     spec:
       containers:
