@@ -1,20 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: www-deployment
-  namespace: hinze-dev-home
-  labels:
-    app: hinze-dev-www
+  name: deployment
 spec:
   revisionHistoryLimit: 2
-  replicas: 2
-  selector:
-    matchLabels:
-      app: hinze-dev-www
   template:
-    metadata:
-      labels:
-        app: hinze-dev-www
     spec:
       containers:
         - image: jhinze/hinze-dev-home:version-1.0.0

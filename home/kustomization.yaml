@@ -1,0 +1,5 @@
+resources:
+  - api
+  - www
+  - ingress.yaml
+namespace: hinze-dev-home
