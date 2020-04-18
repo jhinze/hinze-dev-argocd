@@ -10,6 +10,13 @@ spec:
       containers:
         - image: jhinze/checklist-app-ui:version-1.0.0
           name: ui
+          resources:
+            requests:
+              memory: 32Mi
+              cpu: 100m
+            limits:
+              memory: 64Mi
+              cpu: 250m
           livenessProbe:
             httpGet:
               path: /index.html

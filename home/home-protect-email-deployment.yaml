@@ -19,6 +19,13 @@ spec:
       containers:
         - image: jhinze/protect-email-api:version-1.0.1
           name: hinze-dev-protect-email
+          resources:
+            requests:
+              memory: 32Mi
+              cpu: 100m
+            limits:
+              memory: 64Mi
+              cpu: 200m
           livenessProbe:
             httpGet:
               path: /health

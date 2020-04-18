@@ -12,6 +12,13 @@ spec:
       containers:
         - image: mariadb:10.5.2
           name: mariadb
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 250m
+            limits:
+              memory: 256Mi
+              cpu: 500m
           readinessProbe:
             exec:
               command: ["sh", "-c", "$(printf 'mysqladmin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
