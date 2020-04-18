@@ -5,6 +5,8 @@ resources:
   - service.yaml
   - volume.yaml
   - volume-claim.yaml
+  - auto-scaler.yaml
+  - disruption-budget.yaml
 namePrefix: blog-wp-
 commonLabels:
   app: blog-wp
