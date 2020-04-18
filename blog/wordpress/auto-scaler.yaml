@@ -9,8 +9,3 @@ spec:
     name: wordpress
   minReplicas: 1
   maxReplicas: 3
-  metrics:
-    - resource:
-        name: cpu
-        targetAverageUtilization: 50
-      type: Resource
