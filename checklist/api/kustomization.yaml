@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
+  - auto-scaler.yaml
+  - disruption-budget.yaml
 namePrefix: checklist-api-
 commonLabels:
   app: checklist-api
