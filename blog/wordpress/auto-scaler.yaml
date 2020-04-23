@@ -9,4 +9,4 @@ spec:
     name: wordpress
   minReplicas: 1
   maxReplicas: 3
-  targetCPUUtilizationPercentage: 60
+  targetCPUUtilizationPercentage: 50
