@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: jhinze/hinze-dev-home:version-1.0.0
+        - image: jhinze/hinze-dev-home:version-1.0.1
           name: hinze-dev-www
           resources:
             requests:
