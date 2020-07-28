@@ -1,0 +1,6 @@
+resources:
+  - api
+  - database
+  - www
+  - ingress.yaml
+namespace: short-link
