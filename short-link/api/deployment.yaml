@@ -20,9 +20,9 @@ spec:
             httpGet:
               path: /health
               port: 8080
-            initialDelaySeconds: 30
-            periodSeconds: 15
-            timeoutSeconds: 2
+            initialDelaySeconds: 60
+            periodSeconds: 60
+            timeoutSeconds: 5
           ports:
             - containerPort: 8080
               protocol: TCP
