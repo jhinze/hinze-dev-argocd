@@ -12,7 +12,7 @@ spec:
     - host: ln.hinze.dev
       http:
         paths:
-          - path: /([a-zA-Z\d]{6}$|link$)
+          - path: /([a-zA-Z0-9]{6}$|link$)
             backend:
               serviceName: short-link-api-service
               servicePort: 8080
