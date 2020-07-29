@@ -12,14 +12,14 @@ spec:
     - host: ln.hinze.dev
       http:
         paths:
-          - path: /($|index\.html$)
-            backend:
-              serviceName: short-link-www-service
-              servicePort: 80
-          - path: /(.+)
+          - path: /([a-zA-Z\d]{6}$|link$)
             backend:
               serviceName: short-link-api-service
               servicePort: 8080
+          - path: /(.*)
+            backend:
+              serviceName: short-link-www-service
+              servicePort: 80
   tls:
     - hosts:
         - ln.hinze.dev
