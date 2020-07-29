@@ -37,7 +37,7 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: pass
-            - name: DATABASE_PORT
+            - name: DB_PORT
               value: "5432"
             - name: DB_HOST
               value: "short-link-db-postgres.short-link"
