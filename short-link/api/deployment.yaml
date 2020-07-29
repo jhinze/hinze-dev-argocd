@@ -32,7 +32,7 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: user
-            - name: DB_PASSWORD
+            - name: DB_PASS
               valueFrom:
                 secretKeyRef:
                   name: postgres-secret
