@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: jhinze/short-link:latest
+        - image: jhinze/short-link:version-0.1.0
           name: api
           resources:
             requests:
