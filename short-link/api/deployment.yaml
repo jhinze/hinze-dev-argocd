@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: jhinze/short-link:version-0.1.0
+        - image: jhinze/short-link:version-0.2.0
           name: api
           resources:
             requests:
@@ -34,6 +34,11 @@ spec:
             - containerPort: 8080
               protocol: TCP
           env:
+            - name: RECAPTCHA_V3_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: recaptcha-secret
+                  key: secret
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
