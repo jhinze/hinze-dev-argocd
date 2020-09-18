@@ -53,3 +53,5 @@ spec:
               value: "5432"
             - name: DB_HOST
               value: "short-link-db-postgres.short-link"
+      nodeSelector:
+        kubernetes.io/hostname: heidi.hinze.dev 
