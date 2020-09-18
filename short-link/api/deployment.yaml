@@ -11,11 +11,11 @@ spec:
           name: api
           resources:
             requests:
-              memory: 192Mi
+              memory: 256Mi
               cpu: 100m
             limits:
               memory: 320Mi
-              cpu: 250m
+              cpu: 500m
           readinessProbe:
             httpGet:
               path: /health
