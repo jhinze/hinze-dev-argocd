@@ -12,9 +12,9 @@ spec:
           resources:
             requests:
               memory: 256Mi
-              cpu: 250m
+              cpu: 100m
             limits:
-              memory: 512Mi
+              memory: 320Mi
               cpu: 500m
           readinessProbe:
             httpGet:
@@ -22,14 +22,14 @@ spec:
               port: 8080
             initialDelaySeconds: 120
             periodSeconds: 60
-            timeoutSeconds: 5
+            timeoutSeconds: 10
           livenessProbe:
             httpGet:
               path: /health
               port: 8080
-            initialDelaySeconds: 60
+            initialDelaySeconds: 180
             periodSeconds: 60
-            timeoutSeconds: 5
+            timeoutSeconds: 10
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -53,3 +53,5 @@ spec:
               value: "5432"
             - name: DB_HOST
               value: "short-link-db-postgres.short-link"
+      nodeSelector:
+        kubernetes.io/hostname: heidi.hinze.dev 
