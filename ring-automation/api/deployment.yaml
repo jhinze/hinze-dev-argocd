@@ -10,7 +10,7 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: heidi.hinze.dev
       containers:
-        - image: jhinze/ring-automation:latest
+        - image: jhinze/ring-automation:version-1.0.0
           name: api
           resources:
             requests:
