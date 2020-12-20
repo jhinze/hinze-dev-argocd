@@ -7,18 +7,9 @@ spec:
   revisionHistoryLimit: 2
   template:
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
       containers:
         - image: jhinze/ring-automation:version-1.0.1
           name: api
-          resources:
-            requests:
-              memory: 64Mi
-              cpu: 100m
-            limits:
-              memory: 128Mi
-              cpu: 200m
           readinessProbe:
             httpGet:
               path: /health
@@ -42,3 +33,14 @@ spec:
                 secretKeyRef:
                   name: ring-refresh-token
                   key: secret
+            - name: TOKEN_FILE
+              value: /etc/ring/token.conf
+          volumeMounts:
+            - mountPath: /etc/ring
+              name: ring-automation-storage
+      volumes:
+        - name: ring-automation-storage
+          persistentVolumeClaim:
+            claimName: ring-automation-volume-claim
+      nodeSelector:
+        kubernetes.io/hostname: heidi.hinze.dev

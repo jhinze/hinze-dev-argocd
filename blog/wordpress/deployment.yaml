@@ -9,13 +9,6 @@ spec:
       containers:
         - image: wordpress:5.4.0-php7.4-apache
           name: wordpress
-          resources:
-            requests:
-              memory: 128Mi
-              cpu: 250m
-            limits:
-              memory: 256Mi
-              cpu: 500m
           readinessProbe:
             httpGet:
               path: /

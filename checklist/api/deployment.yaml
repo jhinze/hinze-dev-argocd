@@ -9,13 +9,6 @@ spec:
       containers:
         - image: jhinze/checklist-app-api:version-1.0.1
           name: api
-          resources:
-            requests:
-              memory: 32Mi
-              cpu: 100m
-            limits:
-              memory: 64Mi
-              cpu: 250m
           livenessProbe:
             httpGet:
               path: /health
@@ -50,3 +43,5 @@ spec:
               value: "5432"
             - name: DATABASE_HOST
               value: "checklist-db-postgres.checklist"
+      nodeSelector:
+        kubernetes.io/hostname: heidi.hinze.dev
