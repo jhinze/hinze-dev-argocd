@@ -13,7 +13,7 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: ring-service
+              serviceName: ring-automation-service
               servicePort: 8080
   tls:
     - hosts:
