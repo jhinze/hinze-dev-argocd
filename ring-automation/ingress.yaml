@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ring
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+    - host: ring.hinze.dev
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: ring-service
+              servicePort: 8080
+  tls:
+    - hosts:
+        - ring.hinze.dev
+      secretName: ring-hinze-tls-secret
