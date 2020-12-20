@@ -8,7 +8,7 @@ spec:
   template:
     spec:
       containers:
-        - image: jhinze/ring-automation:version-1.0.2
+        - image: jhinze/ring-automation:version-1.0.3
           name: api
           readinessProbe:
             httpGet:
