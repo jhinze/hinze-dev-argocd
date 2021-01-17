@@ -23,6 +23,13 @@ spec:
             initialDelaySeconds: 180
             periodSeconds: 60
             timeoutSeconds: 10
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 125m
+            limits:
+              memory: 256Mi
+              cpu: 250m
           ports:
             - containerPort: 8080
               protocol: TCP
