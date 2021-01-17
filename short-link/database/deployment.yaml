@@ -20,6 +20,13 @@ spec:
               command: ["sh", "-c", "$(printf 'psql -U %s -d %s -c ''SELECT 1''' $POSTGRES_USER $POSTGRES_DB)"]
             initialDelaySeconds: 45
             timeoutSeconds: 2
+          resources:
+            limits:
+              cpu: 250m
+              memory: 128Mi
+            requests:
+              cpu: 125m
+              memory: 64Mi
           env:
             - name: POSTGRES_USER
               valueFrom:
