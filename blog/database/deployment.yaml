@@ -22,6 +22,13 @@ spec:
               command: ["sh", "-c", "$(printf 'mysqladmin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
             initialDelaySeconds: 45
             timeoutSeconds: 2
+          resources:
+            limits:
+              cpu: 250m
+              memory: 128Mi
+            requests:
+              cpu: 125m
+              memory: 64Mi
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
