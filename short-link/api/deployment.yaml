@@ -54,8 +54,8 @@ spec:
             - name: DB_HOST
               value: "short-link-db-postgres.short-link"
             - name: HTTP_MAX_THREADS
-              value: 10
+              value: "10"
             - name: JAVA_ARGS
-              value: -XX:+UseSerialGC
+              value: "-XX:+UseSerialGC"
       nodeSelector:
         kubernetes.io/hostname: heidi.hinze.dev 
