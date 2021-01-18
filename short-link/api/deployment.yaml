@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: jhinze/short-link:version-0.2.1
+        - image: jhinze/short-link:latest
           name: api
           readinessProbe:
             httpGet:
@@ -53,5 +53,9 @@ spec:
               value: "5432"
             - name: DB_HOST
               value: "short-link-db-postgres.short-link"
+            - name: HTTP_MAX_THREADS
+              value: 10
+            - name: JAVA_ARGS
+              value: -XX:+UseSerialGC
       nodeSelector:
         kubernetes.io/hostname: heidi.hinze.dev 
