@@ -5,7 +5,6 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 12m
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
