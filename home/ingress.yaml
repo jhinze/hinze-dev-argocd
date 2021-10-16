@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hinze-dev-home-ingress
@@ -13,19 +13,25 @@ spec:
       http:
         paths:
           - path: /email-api/(.*)
+            pathType: Prefix
             backend:
-              serviceName: hinze-dev-email-api-service
-              servicePort: 80
+              service:
+                name: hinze-dev-email-api-service
+                port: 
+                  number: 80
           - path: /(.*)
+            pathType: Prefix
             backend:
-              serviceName: hinze-dev-www-service
-              servicePort: 80
+              service:
+                name: hinze-dev-www-service
+                port: 
+                  number: 80
   tls:
     - hosts:
         - www.hinze.dev
       secretName: hinze-dev-home-tls-secret
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hinze-dev-justin-ingress
@@ -41,13 +47,19 @@ spec:
       http:
         paths:
           - path: /email-api/(.*)
+            pathType: Prefix
             backend:
-              serviceName: hinze-dev-email-api-service
-              servicePort: 80
+              service:
+                name: hinze-dev-email-api-service
+                port: 
+                  number: 80
           - path: /(.*)
+            pathType: Prefix
             backend:
-              serviceName: hinze-dev-www-service
-              servicePort: 80
+              service:
+                name: hinze-dev-www-service
+                port: 
+                  number: 80
   tls:
     - hosts:
         - justin.hinze.dev
