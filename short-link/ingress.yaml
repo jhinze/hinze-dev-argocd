@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: short-link
@@ -13,13 +13,19 @@ spec:
       http:
         paths:
           - path: /([a-zA-Z0-9]{6}$|link$)
+            pathType: Prefix
             backend:
-              serviceName: short-link-api-service
-              servicePort: 8080
+              service: 
+                name: short-link-api-service
+                port:
+                  number: 8080
           - path: /(.*)
+            pathType: Prefix
             backend:
-              serviceName: short-link-www-service
-              servicePort: 80
+              service:
+                name: short-link-www-service
+                port: 
+                  number: 80
   tls:
     - hosts:
         - ln.hinze.dev
