@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: checklist
@@ -16,13 +16,19 @@ spec:
       http:
         paths:
           - path: /checklist-api/(.*)
+            pathType: Prefix
             backend:
-              serviceName: checklist-api-service
-              servicePort: 80
+              service:
+                name: checklist-api-service
+                port: 
+                  number: 80
           - path: /(.*)
+            pathType: Prefix
             backend:
-              serviceName: checklist-www-service
-              servicePort: 80
+              service:
+                name: checklist-www-service
+                port: 
+                  number: 80
   tls:
     - hosts:
         - checklist.hinze.dev
