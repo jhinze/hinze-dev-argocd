@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: blog
@@ -13,9 +13,12 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: blog-wp-service
-              servicePort: 80
+              service:
+                name: blog-wp-service
+                port: 
+                  number: 80
   tls:
     - hosts:
         - www.justinhinze.com
