@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: autoscaler
@@ -12,5 +12,7 @@ spec:
   metrics:
   - type: Resource
     resource:
-      name: memory
-      targetAverageUtilization: 70
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
