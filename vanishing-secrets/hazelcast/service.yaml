@@ -6,7 +6,7 @@ spec:
   selector:
     app: hazelcast
   ports:
-    - name: http
+    - name: hazelcast
       protocol: TCP
       port: 5701
       targetPort: 5701
