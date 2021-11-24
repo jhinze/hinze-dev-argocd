@@ -35,6 +35,11 @@ spec:
             - containerPort: 8080
               protocol: TCP
           env:
+            - name: RECAPTCHA_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: recaptcha-secret
+                  key: secret
             - name: K8S_NAMESPACE
               value: vanishing-secrets
             - name: K8S_SERVICE
