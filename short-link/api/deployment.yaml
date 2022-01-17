@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: jhinze/short-link:latest
+        - image: jhinze/short-link:0.3.0-SNAPSHOT
           name: api
           readinessProbe:
             httpGet:
