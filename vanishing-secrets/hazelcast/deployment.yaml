@@ -37,8 +37,6 @@ spec:
           env:
             - name: HZ_NETWORK_RESTAPI_ENABLED
               value: "true"
-            - name: HZ_NETWORK_JOIN_MULTICAST_ENABLED
-              value: "true"
             - name: HZ_NETWORK_JOIN_KUBERNETES_ENABLED
               value: "true"
             - name: HZ_NETWORK_JOIN_KUBERNETES_NAMESPACE
