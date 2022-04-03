@@ -43,4 +43,6 @@ spec:
               value: "vanishing-secrets"
             - name: HZ_NETWORK_JOIN_KUBERNETES_SERVICE-NAME
               value: "hazelcast-service"
+      nodeSelector:
+        kubernetes.io/hostname: heidi.hinze.dev
               
