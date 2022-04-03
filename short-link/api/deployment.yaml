@@ -57,3 +57,5 @@ spec:
               value: "50"
             - name: JAVA_ARGS
               value: "-XX:+UseSerialGC"
+      nodeSelector:
+        kubernetes.io/hostname: heidi.hinze.dev
