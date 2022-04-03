@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: jhinze/checklist-app-ui:version-1.0.0
+        - image: jhinze/checklist-app-ui:version-1.0.1
           name: ui
           livenessProbe:
             httpGet:
