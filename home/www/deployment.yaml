@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: jhinze/hinze-dev-home:version-1.0.1
+        - image: jhinze/hinze-dev-home:version-1.0.2
           name: hinze-dev-www
           livenessProbe:
             httpGet:
