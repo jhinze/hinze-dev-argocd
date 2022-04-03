@@ -44,3 +44,5 @@ spec:
               value: vanishing-secrets
             - name: K8S_SERVICE
               value: hazelcast-service
+      nodeSelector:
+        kubernetes.io/hostname: heidi.hinze.dev
