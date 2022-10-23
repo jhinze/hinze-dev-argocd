@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: hazelcast/hazelcast:4.2.4
+        - image: hazelcast/hazelcast:5.1.4-slim
           name: hazelcast
           startupProbe:
             httpGet:
