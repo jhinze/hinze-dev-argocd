@@ -1,0 +1,4 @@
+resources:
+  - www
+  - ingress.yaml
+namespace: phalla-home

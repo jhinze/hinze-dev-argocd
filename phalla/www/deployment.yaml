@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  revisionHistoryLimit: 2
+  template:
+    spec:
+      containers:
+        - image: jhinze/ou-web:latest
+          name: phalla-www
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 2
+          resources:
+            limits:
+              cpu: 200m
+              memory: 64Mi
+            requests:
+              cpu: 100m
+              memory: 32Mi
+          ports:
+            - containerPort: 80
+              protocol: TCP
