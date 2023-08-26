@@ -1,0 +1,5 @@
+resources:
+  - app
+  - hazelcast
+  - ingress.yaml
+namespace: beryl-halia

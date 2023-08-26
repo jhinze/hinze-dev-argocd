@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: volume
+  labels:
+    type: local
+spec:
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/beryl-halia/resources"

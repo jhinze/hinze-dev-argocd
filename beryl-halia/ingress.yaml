@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vanishing-secrets
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+    - host: www.berylhaliaouhinze.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: beryl-halia-service
+                port: 
+                  number: 8080
+  tls:
+    - hosts:
+        - www.berylhaliaouhinze.com
+      secretName: beryl-halia-tls-secret
