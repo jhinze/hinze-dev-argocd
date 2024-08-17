@@ -37,5 +37,3 @@ spec:
                 secretKeyRef:
                   name: protect-email-secret
                   key: protected-email
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
