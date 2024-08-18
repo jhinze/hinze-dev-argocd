@@ -26,5 +26,3 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
