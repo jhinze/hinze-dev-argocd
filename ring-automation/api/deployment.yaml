@@ -49,5 +49,3 @@ spec:
         - name: ring-automation-storage
           persistentVolumeClaim:
             claimName: ring-automation-volume-claim
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
