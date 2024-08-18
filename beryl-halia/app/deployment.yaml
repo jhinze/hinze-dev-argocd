@@ -47,5 +47,3 @@ spec:
         - name: beryl-halia-storage
           persistentVolumeClaim:
             claimName: beryl-halia-volume-claim
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
