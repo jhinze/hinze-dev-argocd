@@ -4,7 +4,7 @@ metadata:
   name: blog
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 12m
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: cloudflare
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
