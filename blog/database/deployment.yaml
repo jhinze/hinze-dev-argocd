@@ -45,5 +45,3 @@ spec:
         - name: mariadb-storage
           persistentVolumeClaim:
             claimName: blog-db-volume-claim
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
