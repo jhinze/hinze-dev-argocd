@@ -48,5 +48,3 @@ spec:
         - name: wordpress-storage
           persistentVolumeClaim:
             claimName: blog-wp-volume-claim
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
