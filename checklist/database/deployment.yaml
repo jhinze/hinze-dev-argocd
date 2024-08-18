@@ -53,5 +53,3 @@ spec:
         - name: postgres-storage
           persistentVolumeClaim:
             claimName: checklist-db-volume-claim
-      nodeSelector:
-        kubernetes.io/hostname: justin.hinze.dev
