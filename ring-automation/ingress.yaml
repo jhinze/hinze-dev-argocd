@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: ring
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: cloudflare
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
