@@ -50,5 +50,3 @@ spec:
         - name: postgres-storage
           persistentVolumeClaim:
             claimName: short-link-db-volume-claim
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
