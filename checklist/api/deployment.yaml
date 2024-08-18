@@ -50,5 +50,3 @@ spec:
               value: "5432"
             - name: DATABASE_HOST
               value: "checklist-db-postgres.checklist"
-      nodeSelector:
-        kubernetes.io/hostname: heidi.hinze.dev
