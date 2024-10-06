@@ -32,6 +32,8 @@ spec:
               cpu: 250m
               memory: 128Mi
           env:
+            - name: MARIADB_DATABASE
+              value: photoprism
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
