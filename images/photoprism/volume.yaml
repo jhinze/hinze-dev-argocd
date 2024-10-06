@@ -1,0 +1,47 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: volume-originals
+  labels:
+    type: local
+spec:
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  capacity:
+    storage: 35Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/photoprism/originals"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: volume-import
+  labels:
+    type: local
+spec:
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  capacity:
+    storage: 35Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/photoprism/import"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: volume-storage
+  labels:
+    type: local
+spec:
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  capacity:
+    storage: 35Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/photoprism/storage"

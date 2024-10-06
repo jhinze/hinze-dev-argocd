@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mariadb
+spec:
+  selector:
+    matchLabels:
+      app: photoprism-db
+  revisionHistoryLimit: 2
+  replicas: 1
+  serviceName: mariadb
+  template:
+    spec:
+      containers:
+        - image: mariadb:11
+          name: mariadb
+          readinessProbe:
+            exec:
+              command: ["sh", "-c", "$(printf 'mysqladmin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
+            initialDelaySeconds: 15
+            timeoutSeconds: 2
+          livenessProbe:
+            exec:
+              command: ["sh", "-c", "$(printf 'mysqladmin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
+            initialDelaySeconds: 45
+            timeoutSeconds: 2
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 250m
+              memory: 128Mi
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: photoprism-db-secret
+                  key: root
+          ports:
+            - containerPort: 3306
+              name: mariadb
+          volumeMounts:
+            - name: mariadb-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mariadb-storage
+          persistentVolumeClaim:
+            claimName: photoprism-db-volume-claim
