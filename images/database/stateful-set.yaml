@@ -16,12 +16,12 @@ spec:
           name: mariadb
           readinessProbe:
             exec:
-              command: ["sh", "-c", "$(printf 'mysqladmin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
+              command: ["sh", "-c", "$(printf 'mariadb-admin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
             initialDelaySeconds: 15
             timeoutSeconds: 2
           livenessProbe:
             exec:
-              command: ["sh", "-c", "$(printf 'mysqladmin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
+              command: ["sh", "-c", "$(printf 'mariadb-admin ping --password=%s' $MYSQL_ROOT_PASSWORD)"]
             initialDelaySeconds: 45
             timeoutSeconds: 2
           resources:
