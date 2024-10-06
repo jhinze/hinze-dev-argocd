@@ -1,12 +1,14 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: mariadb
 spec:
+  selector:
+    matchLabels:
+      app: photoprism-db
   revisionHistoryLimit: 2
   replicas: 1
-  strategy:
-    type: Recreate
+  serviceName: mariadb
   template:
     spec:
       containers:
