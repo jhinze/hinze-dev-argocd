@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: photoprism
+spec:
+  selector:
+    matchLabels:
+      app: photoprism
+  revisionHistoryLimit: 2
+  serviceName: photoprism
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: photoprism
+        image: photoprism/photoprism:ubuntu
+        env:
+        - name: PHOTOPRISM_DEBUG
+          value: "true"
+        - name: PHOTOPRISM_DATABASE_DRIVER
+          value: mysql
+        - name: PHOTOPRISM_HTTP_HOST
+          value: 0.0.0.0
+        - name: PHOTOPRISM_HTTP_PORT
+          value: "80"
+        # Load database DSN & admin password from secret
+        envFrom:
+        - secretRef:
+            name: photoprism-secrets
+            optional: false
+        ports:
+        - containerPort: 80
+          name: http
+        volumeMounts:
+        - mountPath: /photoprism/originals
+          name: originals
+        - mountPath: /photoprism/import
+          name: import
+        - mountPath: /photoprism/storage
+          name: storage
+        readinessProbe:
+          httpGet:
+            path: /api/v1/status
+            port: http
+        resources:
+          requests:
+            memory: 2048Mi
+            cpu: 500m
+          limits:
+            memory: 6144Mi
+            cpu: 1500m
+      volumes:
+      - name: originals
+        nfs:
+          path: /originals
+          # readOnly: true # Disables import and upload!
+          server: my.nas.host
+      - name: import
+        nfs:
+          path: /import
+          server: my.nas.host
+      - name: storage
+        nfs:
+          path: /storage
+          server: my.nas.host

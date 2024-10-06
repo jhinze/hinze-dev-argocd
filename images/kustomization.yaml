@@ -1,0 +1,5 @@
+resources:
+  - database
+  - photoprism
+  - ingress.yaml
+namespace: images
