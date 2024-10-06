@@ -27,6 +27,9 @@ spec:
         - secretRef:
             name: photoprism-secrets
             optional: false
+        - secretRef:
+            name: photoprism-oidc-secrets
+            optional: false
         ports:
         - containerPort: 80
           name: http
