@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: images
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 12m
+    nginx.ingress.kubernetes.io/proxy-body-size: 500m
     cert-manager.io/cluster-issuer: cloudflare
     kubernetes.io/tls-acme: "true"
 spec:
