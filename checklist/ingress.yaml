@@ -29,7 +29,7 @@ metadata:
   name: checklist
   annotations:
     nginx.ingress.kubernetes.io/auth-url: |-
-        http://authentik-outpost.checklist.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+        http://authentik-server.authentik.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
     nginx.ingress.kubernetes.io/auth-signin: |-
         https://checklist.hinze.dev/outpost.goauthentik.io/start?rd=$escaped_request_uri
     nginx.ingress.kubernetes.io/auth-response-headers: |-
