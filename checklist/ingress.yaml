@@ -11,18 +11,18 @@ kind: Ingress
 metadata:
   name: checklist
   annotations:
-    nginx.ingress.kubernetes.io/auth-url: |-
-        http://authentik-server.authentik.svc.cluster.local:80/outpost.goauthentik.io/auth/nginx
-    nginx.ingress.kubernetes.io/auth-signin: |-
-        https://checklist.hinze.dev/outpost.goauthentik.io/start?rd=$escaped_request_uri
-    nginx.ingress.kubernetes.io/auth-response-headers: |-
-        Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-email,X-authentik-name,X-authentik-uid
-    nginx.ingress.kubernetes.io/auth-snippet: |
-        proxy_set_header X-Forwarded-Host $http_host;
+    # nginx.ingress.kubernetes.io/auth-url: |-
+    #     http://authentik-server.authentik.svc.cluster.local:80/outpost.goauthentik.io/auth/nginx
+    # nginx.ingress.kubernetes.io/auth-signin: |-
+    #     https://checklist.hinze.dev/outpost.goauthentik.io/start?rd=$escaped_request_uri
+    # nginx.ingress.kubernetes.io/auth-response-headers: |-
+    #     Set-Cookie,X-authentik-username,X-authentik-groups,X-authentik-email,X-authentik-name,X-authentik-uid
+    # nginx.ingress.kubernetes.io/auth-snippet: |
+    #     proxy_set_header X-Forwarded-Host $http_host;
     # nginx.ingress.kubernetes.io/auth-type: basic
     # nginx.ingress.kubernetes.io/auth-secret: checklist-basic-auth
     # nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required'
-    # nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
     cert-manager.io/cluster-issuer: cloudflare
     kubernetes.io/tls-acme: "true"
 spec:
