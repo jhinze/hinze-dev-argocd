@@ -9,23 +9,6 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-    name: authentik-outpost
-spec:
-    rules:
-        - host: checklist.hinze.dev
-          http:
-              paths:
-                  - path: /outpost.goauthentik.io
-                    pathType: Prefix
-                    backend:
-                        service:
-                            name: authentik
-                            port:
-                                number: 9000
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
   name: checklist
   annotations:
     nginx.ingress.kubernetes.io/auth-url: |-
@@ -47,6 +30,16 @@ spec:
     - host: checklist.hinze.dev
       http:
         paths:
+          - host: checklist.hinze.dev
+            http:
+              paths:
+                - path: /outpost.goauthentik.io
+                  pathType: Prefix
+                  backend:
+                    service:
+                      name: authentik
+                      port:
+                        number: 9000
           - path: /checklist-api/(.*)
             pathType: Prefix
             backend:
