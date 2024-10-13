@@ -30,16 +30,13 @@ spec:
     - host: checklist.hinze.dev
       http:
         paths:
-          - host: checklist.hinze.dev
-            http:
-              paths:
-                - path: /outpost.goauthentik.io
-                  pathType: Prefix
-                  backend:
-                    service:
-                      name: authentik
-                      port:
-                        number: 9000
+          - path: /outpost.goauthentik.io
+            pathType: Prefix
+            backend:
+              service:
+                name: authentik
+                port:
+                  number: 9000
           - path: /checklist-api/(.*)
             pathType: Prefix
             backend:
