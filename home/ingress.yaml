@@ -62,3 +62,35 @@ spec:
     - hosts:
         - justin.hinze.dev
       secretName: hinze-dev-justin-tls-secret
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hinze-dev-home-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: www.justinhinze.com
+      http:
+        paths:
+          - path: /email-api/(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: hinze-dev-email-api-service
+                port: 
+                  number: 80
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: hinze-dev-www-service
+                port: 
+                  number: 80
+  tls:
+    - hosts:
+        - www.justinhinze.com
+      secretName: justin-hinze-home-tls-secret
