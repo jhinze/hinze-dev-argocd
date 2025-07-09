@@ -66,7 +66,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hinze-dev-home-ingress
+  name: justin-hinze-home-ingress
   annotations:
     cert-manager.io/cluster-issuer: cloudflare
     kubernetes.io/tls-acme: "true"
